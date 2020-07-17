@@ -1,4 +1,11 @@
 import termcolor
+import hashlib
+
+
+def get_md5(value):
+    if isinstance(value, str):
+        value = value.encode(encoding="utf-8")
+    return hashlib.md5(value).hexdigest()
 
 
 def save_command(cmd):
