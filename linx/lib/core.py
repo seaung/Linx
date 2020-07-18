@@ -103,8 +103,36 @@ class Porccesser(object):
                             print("[!] Please select a variable name")
                     elif self.input_list[0] == "crawler":
                         if self.input_list[1] == "help":
-                            ...
+                            print("\n[Help] run a web crawler in target URL.")
+                            print("[Required] URL as target")
+                            print("example:")
+                            print("{} set target http://www.example.com/id=1".format(console))
+                            print("{} webcrawler start\n".format(console))
                         elif self.input_list[1] == "run":
-                            ...
+                            from linx.modules.webcrawler import WebCrawler
+                            self.webcrawler = WebCrawler()
+                            try:
+                                self.webcrawler.crawler(self.input_list[2])
+                            except IndexError:
+                                try:
+                                    if self.targets:
+                                        self.webcrawler.crawler(self.targets)
+                                    else:
+                                        self.targets = input("[+] Enter the target URL:")
+                                        self.webcrawler.crawler(self.targets)
+                                except KeyboardInterrupt:
+                                    pass
+                                except Exception as e:
+                                    print("[+] Exception caught: {}".format(e))
+                                except Exception as e:
+                                    print("[!] Exception caught: {}".format(e))
+                except IndexError:
+                    pass
+                except Exception as e:
+                    print()
+                except KeyboardInterrupt:
+                    print("\n[*] User Requested Shutdown.")
+                    exit()
         except Exception as e:
-            ...
+            print("\n[*] User Requested Shutdown.")
+            eixt()
