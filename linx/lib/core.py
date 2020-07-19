@@ -3,9 +3,10 @@ import os
 import psutil
 import termcolor
 
-from commons.utils import save_command
-from commons.utils import print_usage
-from lib.completer import Completer
+from linx.commons.utils import save_command
+from linx.commons.utils import print_usage
+
+from linx.lib.completer import Completer
 
 
 class Porccesser(object):
@@ -23,12 +24,12 @@ class Porccesser(object):
             proc.kill()
         proccess.kill()
 
-    def start():
+    def start(self):
         try:
             save_command("")
             while True:
                 completer = Completer(self.path, "linx")
-                console = termcolor.colored("Linx>>", "red", attrs=["blod"])
+                console = termcolor.colored("Linx>>", "red", attrs=["bold"])
                 try:
                     self.command = input("{} ".format(console))
                 except EOFError:
@@ -123,8 +124,10 @@ class Porccesser(object):
                                 except KeyboardInterrupt:
                                     pass
                                 except Exception as e:
-                                    print("[+] Exception caught: {}".format(e))
+                                    print("[!] crawler exception: {}".format(e))
+                                    print("[!] Exception caught: {}".format(e))
                                 except Exception as e:
+                                    print("[!] Exception form crawler: {}".format(e))
                                     print("[!] Exception caught: {}".format(e))
                 except IndexError:
                     pass

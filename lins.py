@@ -16,10 +16,10 @@ if __name__ == "__main__":
         sys.exit("[!] Only for roots kido!")
 
     try:
-        print_logo()
-        print(colors("by: ", "blue") + colors("seaung", "red"))
+        print(print_logo(version, author))
         print()
         p.start()
     except Exception as e:
+        #print("[!] Exception Unkonow Error : {}".format(e))
         print("[!] Exception caught : {}".format(e))
 

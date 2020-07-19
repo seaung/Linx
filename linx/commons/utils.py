@@ -13,20 +13,21 @@ def save_command(cmd):
         with open('.linx_history', 'a+') as fs:
             fs.write('{}\n'.format(cmd))
     except Exception as e:
+        print("[!] save command caught: {}".format(e))
         print("[!] Exception caught : {}".format(e))
         pass
 
 
 def colors(message, color):
-    msg  termcolor.colred(str(message), str(color), attr=["blod"])
+    msg = termcolor.colored(str(message), str(color), attrs=["bold"])
     return msg
 
 
 def print_logo(version, author):
     banner = '''\n
         [ Linx - Penetration Testing Tools ]
-        [ Author by {} ]
-        [ version {} ]
+        [ Author by {0} ]
+        [ version {1} ]
     '''.format(author, version)
     return colors(banner, "blue")
 
