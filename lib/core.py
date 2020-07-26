@@ -3,10 +3,10 @@ import os
 import psutil
 import termcolor
 
-from linx.commons.utils import save_command
-from linx.commons.utils import print_usage
+from commons.utils import save_command
+from commons.utils import print_usage
 
-from linx.lib.completer import Completer
+from lib.completer import Completer
 
 
 class Porccesser(object):

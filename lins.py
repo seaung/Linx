@@ -1,12 +1,13 @@
 import sys
 import os
 
-from linx.lib.core import Porccesser
-from linx.commons.utils import print_logo, colors
+from lib.core import Porccesser
+from commons.utils import print_logo, colors
 
 
 version = "0.1.0"
-author = "seaung"
+#author = "seaung"
+author = "70ty"
 
 p = Porccesser()
 

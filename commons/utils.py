@@ -25,6 +25,12 @@ def colors(message, color):
 
 def print_logo(version, author):
     banner = '''\n
+             _     _            
+            | |   (_)_ __ __  __
+            | |   | | '_    \/ /
+            | |___| | | | |>  < 
+            |_____|_|_| |_/_/\_
+
         [ Linx - Penetration Testing Tools ]
         [ Author by {0} ]
         [ version {1} ]
