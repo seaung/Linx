@@ -29,7 +29,7 @@ class Porccesser(object):
             save_command("")
             while True:
                 completer = Completer(self.path, "linx")
-                console = termcolor.colored("Linx>>", "red", attrs=["bold"])
+                console = termcolor.colored("Linx>", "red", attrs=["bold"])
                 try:
                     self.command = input("{} ".format(console))
                 except EOFError:
