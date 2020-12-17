@@ -1,7 +1,7 @@
 import importlib.abc
 import importlib.util
 
-from linx.commons.utils import get_md5
+from lib.tools.utils import get_md5
 
 
 class LoaderPlugins(importlib.abc.Loader):
@@ -44,4 +44,3 @@ def loader_string_to_plugin(code_string, fullname=None):
     except ImportError:
         error_msg = "loader plugin failed : {0}".format(fullname)
         raise
-

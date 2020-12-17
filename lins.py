@@ -1,8 +1,8 @@
 import sys
 import os
 
-from lib.core import Porccesser
-from commons.utils import print_logo, colors
+from lib.core.processer import Processer
+from config.ascii import show_banner
 
 
 version = "0.1.0"
@@ -15,12 +15,10 @@ p = Porccesser()
 if __name__ == "__main__":
     if os.geteuid() != 0:
         sys.exit("[!] Only for roots kido!")
-
     try:
-        print(print_logo(version, author))
+        show_banner()
         print()
         p.start()
     except Exception as e:
         #print("[!] Exception Unkonow Error : {}".format(e))
         print("[!] Exception caught : {}".format(e))
-

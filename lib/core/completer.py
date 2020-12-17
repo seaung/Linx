@@ -19,17 +19,9 @@ class Completer(object):
         result = [x for x in self.suboptions if x.startswith(text)] + [None]
         return result[state]
 
-    def exploit(self, text, state):
-        self.completer_words = ['clear', 'help', 'exit', 'quit', 'print', 'set', 'break', 'run', 'exploit']
-        result = [x for x in self.completer_words if x.startswith(text)] + [None]
-        return result[state]
-
     def linx(self, text, state):
-        if "set" in text and state == 1:
-            self.suboptions = ['target', 'file', 'domain', 'port', 'help']
-            completer = readline.set_completer(self.suboption)
-        elif "print" in text and state == 1:
-            self.suboptions = ['target', 'file', 'domain', 'port', 'help']
+        if "scan" in text and state == 1:
+            self.suboptions = ['target', 'domain', 'port', 'help']
             completer = readline.set_completer(self.suboptions)
         elif "crawler" in text and state == 1:
             self.suboptions = ['start', 'help']
