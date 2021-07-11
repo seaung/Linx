@@ -5,4 +5,4 @@ __pycache__/
 Pipfile
 Pipfile.lock
 .linx_history
-
+tmpdir/
