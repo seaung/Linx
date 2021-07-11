@@ -30,3 +30,4 @@ class Completer(object):
             self.completer_words = ['clear', 'help', 'crawler', 'set', 'print', 'exit', 'quit']
             result = [x for x in self.completer_words if x.startswith(text)] + [None]
             return result[state]
+

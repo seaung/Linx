@@ -1,0 +1,36 @@
+
+                """
+                try:
+                    if self.command == "help" or self.command == "show":
+                        show_help()
+                    elif self.command == "exit" or self.command == "quit":
+                        exit()
+                    elif self.input_list[0] == "crawler" or self.input_list[0] == "CRAWLER":
+                        try:
+                            if self.input_list[1] != "":
+                                self.url = input_list[1]
+                                print("crawler site from url : ", self.url)
+                            else:
+                                self.url = input("[*] Enter a target URL :")
+                                print("crawler site : ", self.url)
+                        except IndexError:
+                            print("[!] Enter a target URL please!")
+                    elif self.input_list[0] == "scanner" or self.input_list[0] == "SCANNER":
+                        try:
+                            if self.input_list[1] != "":
+                                self.target = input_list[1]
+                                print("scanner target :", self.target)
+                            else:
+                                self.target = input("[*] Enter a ip addresses : ")
+                                print("[*] target IP address : ", self.target)
+                        except IndexError:
+                            print("[!] Enter a target IP Addresses :")
+                except IndexError:
+                    print("[!] Unkown Command !")
+                    print("[!] Enter a Command Please !")
+                except Exception as e:
+                    print("[!] Unkown Command !")
+                    print("[!] Error Information : ", e)
+                except KeyboardInterrupt:
+                    exit(0)
+                """

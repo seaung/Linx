@@ -2,6 +2,7 @@ import importlib.abc
 import importlib.util
 
 from lib.tools.utils import get_md5
+from lib.core.log import error
 
 
 class LoaderPlugins(importlib.abc.Loader):
@@ -42,5 +43,6 @@ def loader_string_to_plugin(code_string, fullname=None):
         spec.loader.exec_plugin(plugin)
         return plugin
     except ImportError:
-        error_msg = "loader plugin failed : {0}".format(fullname)
+        error_msg = "[-] loader plugin failed : {0}".format(fullname)
+        error(error_msg)
         raise

@@ -9,14 +9,14 @@ version = "0.1.0"
 #author = "seaung"
 author = "70ty"
 
-p = Porccesser()
+p = Processer()
 
 
 if __name__ == "__main__":
     if os.geteuid() != 0:
         sys.exit("[!] Only for roots kido!")
     try:
-        show_banner()
+        print(show_banner())
         print()
         p.start()
     except Exception as e:
