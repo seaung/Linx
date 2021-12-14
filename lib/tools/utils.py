@@ -3,12 +3,12 @@ import hashlib
 
 
 def colors(message, color):
-    msg = termcolor.colored(str(meesage), str(color), attrs=["bold"])
+    msg = termcolor.colored(str(message), str(color), attrs=["bold"])
     return msg
 
 
 def success(msg):
-    print(termcolor.colored(str(msg), str("cyan"), attrs["bold"]))
+    print(termcolor.colored(str(msg), str("cyan"), attrs=["bold"]))
 
 
 def warning(msg):

@@ -13,10 +13,10 @@ class Processer(object):
         self.input_list = None
 
     def pskill(self, pid):
-        proccess = psutil.Proccess(pid)
-        for proc in proccess.children(recursive=True):
+        process = psutil.Process(pid)
+        for proc in process.children(recursive=True):
             proc.kill()
-        proccess.kill()
+        process.kill()
 
     def start(self):
         try:
@@ -32,7 +32,7 @@ class Processer(object):
                     if self.command == "help" or self.command == "show":
                         show_help()
                     elif self.command == "exit" or self.command == "quit":
-                        print("[*] User requested shutdown...")
+                        print(info("[*] User requested shutdown..."))
                         exit()
                     elif self.input_list[0] == "crawler" or self.input_list[0] == "CRAWLER":
                         #print(self.input_list)
@@ -41,13 +41,17 @@ class Processer(object):
                                 show_crawler_help()
                             else:
                                 self.url = self.input_list[1]
-                                print("crawler in...", self.url)
+                                print("crawler in... ", self.url)
                         except IndexError:
                             print("[*] Enter a url please !")
                             pass
                     elif self.input_list[0] == "scanner" or self.input_list[0] == "SCANNER":
                         try:
-                            pass
+                            if self.input_list[1] == "show":
+                                show_scanner_help()
+                            else:
+                                self.target = self.input_list[1]
+                                print("scanner in ... ", self.target)
                         except IndexError:
                             print("[*] Enter a target ip addresses !")
                             pass
