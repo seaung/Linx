@@ -4,7 +4,7 @@ import psutil
 
 from lib.tools.utils import success, info, warning, error
 from lib.tools.helper import show_help, show_crawler_help, show_scanner_help
-
+from modules.isopsys import show_opt_sys
 
 class Processer(object):
     def __init__(self):
@@ -54,6 +54,16 @@ class Processer(object):
                                 print("scanner in ... ", self.target)
                         except IndexError:
                             print("[*] Enter a target ip addresses !")
+                            pass
+                    elif self.input_list[0] == "system" or self.input_list[0] == "SYS":
+                        try:
+                            if self.input_list[1] == "show":
+                                print("show system.")
+                            else:
+                                self.host = self.input_list[1]
+                                show_opt_sys(self.host)
+                        except IndexError:
+                            print("[*] system press key.")
                             pass
 
                 except IndexError:

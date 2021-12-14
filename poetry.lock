@@ -1,4 +1,12 @@
 [[package]]
+name = "kamene"
+version = "0.32"
+description = "Packet crafting/sending/sniffing, PCAP processing tool, originally forked from scapy"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "psutil"
 version = "5.8.0"
 description = "Cross-platform lib for process and system monitoring in Python."
@@ -20,9 +28,12 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "7aae1de1b9daded325b6238cd53fb691df69d74132c26e40c30d10deb456ecdf"
+content-hash = "5876117153addda59f40da74537c9222a86c33a4b9955c7e19fc9fa28232c288"
 
 [metadata.files]
+kamene = [
+    {file = "kamene-0.32.tar.gz", hash = "sha256:54fd94db09ca3c7a7f1ef38276a83f01905dce9801de84797a0f00b3c99434da"},
+]
 psutil = [
     {file = "psutil-5.8.0-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:0066a82f7b1b37d334e68697faba68e5ad5e858279fd6351c8ca6024e8d6ba64"},
     {file = "psutil-5.8.0-cp27-cp27m-manylinux2010_i686.whl", hash = "sha256:0ae6f386d8d297177fd288be6e8d1afc05966878704dad9847719650e44fc49c"},
