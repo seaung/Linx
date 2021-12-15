@@ -1,10 +1,12 @@
-import sys
 import os
+import sys
+import time
 import psutil
 
-from lib.tools.utils import success, info, warning, error
+from lib.tools.utils import success, info, warning, error, colors
 from lib.tools.helper import show_help, show_crawler_help, show_scanner_help
 from modules.isopsys import show_opt_sys
+from modules.scan import run_default_scan
 
 class Processer(object):
     def __init__(self):
@@ -33,9 +35,8 @@ class Processer(object):
                         show_help()
                     elif self.command == "exit" or self.command == "quit":
                         print(info("[*] User requested shutdown..."))
-                        exit()
+                        exit(0)
                     elif self.input_list[0] == "crawler" or self.input_list[0] == "CRAWLER":
-                        #print(self.input_list)
                         try:
                             if self.input_list[1] == "show":
                                 show_crawler_help()
@@ -44,7 +45,6 @@ class Processer(object):
                                 print("crawler in... ", self.url)
                         except IndexError:
                             print("[*] Enter a url please !")
-                            pass
                     elif self.input_list[0] == "scanner" or self.input_list[0] == "SCANNER":
                         try:
                             if self.input_list[1] == "show":
@@ -52,9 +52,11 @@ class Processer(object):
                             else:
                                 self.target = self.input_list[1]
                                 print("scanner in ... ", self.target)
+                                start_time = time.time()
+                                run_default_scan(self.target)
+                                print(success(f"scan used time is : {time.time()-start_time}'s"))
                         except IndexError:
                             print("[*] Enter a target ip addresses !")
-                            pass
                     elif self.input_list[0] == "system" or self.input_list[0] == "SYS":
                         try:
                             if self.input_list[1] == "show":
@@ -64,8 +66,6 @@ class Processer(object):
                                 show_opt_sys(self.host)
                         except IndexError:
                             print("[*] system press key.")
-                            pass
-
                 except IndexError:
                     pass
 
