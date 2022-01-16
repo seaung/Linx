@@ -6,9 +6,7 @@ authors = ["seaung <seaung.c0m7de@protonmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-psutil = "^5.8.0"
 termcolor = "^1.1.0"
-kamene = "^0.32"
 
 [tool.poetry.dev-dependencies]
 

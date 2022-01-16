@@ -1,12 +1,10 @@
 import os
 import sys
-import time
-import psutil
+import termcolor
 
-from lib.tools.utils import success, info, warning, error, colors
 from lib.tools.helper import show_help, show_crawler_help, show_scanner_help
-from modules.isopsys import show_opt_sys
-from modules.scan import run_default_scan
+from lib.tools.utils import colors
+
 
 class Processer(object):
     def __init__(self):
@@ -14,17 +12,12 @@ class Processer(object):
         self.port = 80
         self.input_list = None
 
-    def pskill(self, pid):
-        process = psutil.Process(pid)
-        for proc in process.children(recursive=True):
-            proc.kill()
-        process.kill()
-
     def start(self):
         try:
             while True:
+                console = termcolor.colored("Lins > ", "red", attrs=["bold"])
                 try:
-                    self.command = input("Lins > ")
+                    self.command = input(f"{console}")
                 except EOFError:
                     self.command = "exit"
 
@@ -34,8 +27,8 @@ class Processer(object):
                     if self.command == "help" or self.command == "show":
                         show_help()
                     elif self.command == "exit" or self.command == "quit":
-                        print(info("[*] User requested shutdown..."))
-                        exit(0)
+                        print(colors("[*] User requested shutdown...", "green"))
+                        exit()
                     elif self.input_list[0] == "crawler" or self.input_list[0] == "CRAWLER":
                         try:
                             if self.input_list[1] == "show":
@@ -52,9 +45,6 @@ class Processer(object):
                             else:
                                 self.target = self.input_list[1]
                                 print("scanner in ... ", self.target)
-                                start_time = time.time()
-                                run_default_scan(self.target)
-                                print(success(f"scan used time is : {time.time()-start_time}'s"))
                         except IndexError:
                             print("[*] Enter a target ip addresses !")
                     elif self.input_list[0] == "system" or self.input_list[0] == "SYS":
@@ -63,11 +53,10 @@ class Processer(object):
                                 print("show system.")
                             else:
                                 self.host = self.input_list[1]
-                                show_opt_sys(self.host)
                         except IndexError:
                             print("[*] system press key.")
                 except IndexError:
                     pass
 
         except KeyboardInterrupt:
-            exit(0)
+            exit()

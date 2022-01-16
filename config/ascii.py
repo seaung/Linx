@@ -1,6 +1,7 @@
 from random import randint
 
 from config.settings import AUTHOR, VERSION
+from lib.tools.utils import colors
 
 
 cat = """\r\n
@@ -34,4 +35,4 @@ LOGOS = [car, cat, cat2]
 
 
 def show_banner():
-    return LOGOS[randint(0, 1)]
+    return colors(LOGOS[randint(0, 1)], "blue")
