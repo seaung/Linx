@@ -6,3 +6,5 @@ Pipfile
 Pipfile.lock
 .linx_history
 tmpdir/
+env/
+misc/
