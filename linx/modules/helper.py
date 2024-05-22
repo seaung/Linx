@@ -4,6 +4,13 @@ import socket
 import struct
 from typing import Any
 
+import termcolor
+
+
+def color(msg: str, c: Any) -> str:
+    m = termcolor.colored(msg, c, attrs=['bold'])
+    return m
+
 
 def decode(bstr: str) -> str:
     text = input('[*] string to be decoded')

@@ -1,7 +1,16 @@
+from random import randint
+from modules.helper import color
+
+
 def print_banner() -> str:
     banner = ''''''
-    return ""
+    baNNer = ''''''
+    attrs = [banner, baNNer]
+    return attrs[randint(0, 1)]
 
 
 def print_usage() -> None:
-    pass
+    print()
+    print(color('[*]', 'blue'))
+    print()
+    print()
