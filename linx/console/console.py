@@ -42,7 +42,8 @@ class ProcessConsole(object):
             item.kill()
         process.kill()
 
-    def start(self):
+    def start(self) -> None:
+        '''整个Linx程序的核心'''
         try:
             save_command_history("") # 创建.linx_history文件
             while True:
@@ -146,6 +147,42 @@ class ProcessConsole(object):
                             color('[!] Exception caught : {}'.format(e), 'yellow')
                             pass
                     elif self.input_list[0] == 'encoder' or self.input_list[0] == 'ENCODER': # 编码器处理逻辑
+                        try:
+                            pass
+                        except IndexError:
+                            pass
+                        except TypeError:
+                            pass
+                        except KeyboardInterrupt:
+                            pass
+                        except Exception as e:
+                            color('[!] Exception caught : {}'.format(e), 'yellow')
+                            pass
+                    elif self.input_list[0] == 'burp' or self.input_list[0] == 'BURP': # 爆破相关逻辑
+                        try:
+                            pass
+                        except IndexError:
+                            pass
+                        except TypeError:
+                            pass
+                        except KeyboardInterrupt:
+                            pass
+                        except Exception as e:
+                            color('[!] Exception caught : {}'.format(e), 'yellow')
+                            pass
+                    elif self.input_list[0] == 'wifi' or self.input_list[0] == 'WIFI': # wifi无线模块逻辑
+                        try:
+                            pass
+                        except IndexError:
+                            pass
+                        except TypeError:
+                            pass
+                        except KeyboardInterrupt:
+                            pass
+                        except Exception as e:
+                            color('[!] Exception caught : {}'.format(e), 'yellow')
+                            pass
+                    elif self.input_list[0] == 'rpc' or self.input_list[0] == 'RPC': # 远程调用模块
                         try:
                             pass
                         except IndexError:
