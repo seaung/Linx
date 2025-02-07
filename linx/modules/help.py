@@ -1,16 +1,29 @@
-from random import randint
 from modules.helper import color
-
-
-def print_banner() -> str:
-    banner = ''''''
-    baNNer = ''''''
-    attrs = [banner, baNNer]
-    return attrs[randint(0, 1)]
 
 
 def print_usage() -> None:
     print()
-    print(color('[*]', 'blue'))
+    print(color('[*] Linx 帮助信息', 'blue'))
+    print(color('\n基本命令：', 'green'))
+    print(color('  help              显示帮助信息', 'white'))
+    print(color('  exit/quit         退出程序', 'white'))
+    print(color('\n设置命令：', 'green'))
+    print(color('  set interface     设置网络接口', 'white'))
+    print(color('  set domain        设置目标域名', 'white'))
+    print(color('  set port          设置目标端口', 'white'))
+    print(color('  set target        设置目标URL', 'white'))
+    print(color('\n信息显示：', 'green'))
+    print(color('  show interface    显示当前网络接口', 'white'))
+    print(color('  show target       显示当前目标', 'white'))
+    print(color('  show domain       显示当前域名', 'white'))
+    print(color('  show port         显示当前端口', 'white'))
+    print(color('\n功能模块：', 'green'))
+    print(color('  crawler           网站爬虫模块', 'white'))
+    print(color('  scan             端口扫描模块', 'white'))
+    print(color('  burp             暴力破解模块', 'white'))
+    print(color('  sniffer          网络嗅探模块', 'white'))
+    print(color('  wifi             无线网络模块', 'white'))
+    print(color('  rpc              远程调用模块', 'white'))
     print()
+    print(color('[*] 使用 <模块名> show 查看具体模块的帮助信息', 'yellow'))
     print()
