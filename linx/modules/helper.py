@@ -7,9 +7,9 @@ from typing import Any
 import termcolor
 
 
-def color(msg: str, c: Any) -> str:
+def color(msg: str, c: Any):
     m = termcolor.colored(msg, c, attrs=['bold'])
-    return m
+    print(m)
 
 
 def decode(bstr: str) -> str:

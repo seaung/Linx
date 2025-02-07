@@ -7,6 +7,7 @@ from modules.help import print_usage
 
 from modules.helper import color
 from modules.completerme import CompleterMe
+from modules.crawler import CrawlerSpider
 
 
 def save_command_history(command: str) -> None:
@@ -77,47 +78,80 @@ class ProcessConsole(object):
                             if self.input_list[1] == 'interface':
                                 try:
                                     self.interface = self.input_list[2]
+                                    color('[+] Interface set to: {}'.format(self.interface), 'green')
                                 except IndexError:
                                     try:
                                         self.interface = input('[+] Enter the interface :')
+                                        if self.interface:
+                                            color('[+] Interface set to: {}'.format(self.interface), 'green')
                                     except KeyboardInterrupt:
                                         pass
                             elif self.input_list[1] == 'domain':
                                 try:
                                     self.domain = self.input_list[2]
+                                    color('[+] Domain set to: {}'.format(self.domain), 'green')
                                 except IndexError:
                                     try:
                                         self.domain = input('[+] Enter the domain :')
+                                        if self.domain:
+                                            color('[+] Domain set to: {}'.format(self.domain), 'green')
                                     except KeyboardInterrupt:
                                         pass
                             elif self.input_list[1] == 'port':
                                 try:
                                     self.port = int(self.input_list[2])
+                                    color('[+] Port set to: {}'.format(self.port), 'green')
                                 except IndexError:
                                     try:
                                         self.port = input('[+] Enter the default port: ')
+                                        if self.port:
+                                            self.port = int(self.port)
+                                            color('[+] Port set to: {}'.format(self.port), 'green')
                                     except KeyboardInterrupt:
                                         pass
+                                except ValueError:
+                                    color('[!] Port must be a number', 'red')
+                            elif self.input_list[1] == 'target':
+                                try:
+                                    self.targets = self.input_list[2]
+                                    color('[+] Target set to: {}'.format(self.targets), 'green')
+                                except IndexError:
+                                    try:
+                                        self.targets = input('[+] Enter the target :')
+                                        if self.targets:
+                                            color('[+] Target set to: {}'.format(self.targets), 'green')
+                                    except KeyboardInterrupt:
+                                        pass
+                            else:
+                                color('[!] Invalid variable name. Available options: interface, target, domain, port','red')
                         except IndexError:
                             color('[!] Select a valid variable to set.', 'red')
                     elif self.input_list[0] == 'show' or self.input_list[0] == 'SHOW': # 显示设置的信息处理逻辑分支
                         try:
                             if self.input_list[1] == 'interface':
-                                color('[*] Network interface : {}'.format(self.interface), 'green')
+                                if self.interface:
+                                    color('[*] Network interface: {}'.format(self.interface), 'green')
+                                else:
+                                    color('[!] Interface is not set', 'yellow')
                             elif self.input_list[1] == 'target':
-                                try:
-                                    self.targets = self.input_list[2]
-                                except IndexError:
-                                    try:
-                                        self.targets = input('[+] Enter the target :')
-                                    except KeyboardInterrupt:
-                                        pass
+                                if self.targets:
+                                    color('[*] Target: {}'.format(self.targets), 'green')
+                                else:
+                                    color('[!] Target is not set', 'yellow')
                             elif self.input_list[1] == 'domain':
-                                color('[*] Domain : {}'.format(self.domain), 'green')
+                                if self.domain:
+                                    color('[*] Domain: {}'.format(self.domain), 'green')
+                                else:
+                                    color('[!] Domain is not set', 'yellow')
                             elif self.input_list[1] == 'port':
-                                color('[*] Port : {}'.format(self.port), 'green')
+                                if self.port:
+                                    color('[*] Port: {}'.format(self.port), 'green')
+                                else:
+                                    color('[!] Port is not set', 'yellow')
+                            else:
+                                color('[!] Invalid variable name. Available options: interface, target, domain, port', 'red')
                         except IndexError:
-                            color('[!] Select a valid variable name.', 'red')
+                            color('[!] Usage: show <variable>', 'red')
                     elif self.input_list[0] == 'crawler' or self.input_list[0] == 'CRAWLER': # 爬虫模块逻辑
                         if self.input_list[1] == 'show':
                             color('\n[Help] start a crawler in target URL.', 'green')
@@ -126,17 +160,17 @@ class ProcessConsole(object):
                             color('{} set target http://www.example.com'.format(console), 'green')
                             color('{} crawler start \n'.format(console), 'green')
                             continue
-                    elif self.input_list[1] == 'start': # 开始爬取网站url
-                        try:
-                            if not self.targets:
-                                color('[!] Please set target first using "set target <url>"', 'red')
-                                continue
-                            spider = CrawlerSpider()
-                            spider.run(self.targets)
-                        except KeyboardInterrupt:
-                            pass
-                        except Exception as e:
-                            color('[!] Exception caught : {}'.format(e), 'yellow')
+                        elif self.input_list[1] == 'start': # 开始爬取网站url
+                            try:
+                                if not self.targets:
+                                    color('[!] Please set target first using "set target <url>"', 'red')
+                                    continue
+                                spider = CrawlerSpider()
+                                spider.run(self.targets)
+                            except KeyboardInterrupt:
+                                pass
+                            except Exception as e:
+                                color('[!] Exception caught : {}'.format(e), 'yellow')
                     elif self.input_list[0] == 'exploit' or self.input_list[0] == 'Exploit': # 漏洞利用逻辑
                         try:
                             if self.input_list[1] == 'show':

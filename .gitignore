@@ -8,3 +8,4 @@ Pipfile.lock
 tmpdir/
 env/
 misc/
+.venv/

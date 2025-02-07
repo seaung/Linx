@@ -1,4 +1,5 @@
 import re
+import ssl
 from urllib import request
 from urllib.parse import urljoin, urlparse
 
@@ -18,7 +19,11 @@ class CrawlerSpider(object):
             host = self.url.split('://')[1]
         host = self.url.split('://')[0] + '://' + host
         try:
-            response = request.urlopen(self.url, timeout=3)
+            # 创建SSL上下文，设置不验证证书
+            context = ssl.create_default_context()
+            context.check_hostname = False
+            context.verify_mode = ssl.CERT_NONE
+            response = request.urlopen(self.url, timeout=3, context=context)
             if response.status == 200:
                 return response.read().decode('utf-8')
         except Exception as e:
