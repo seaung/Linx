@@ -157,8 +157,8 @@ class ProcessConsole(object):
                             color('\n[Help] start a crawler in target URL.', 'green')
                             color('[Required] URL as target.', 'green')
                             color('For example:', 'green')
-                            color('{} set target http://www.example.com'.format(console), 'green')
-                            color('{} crawler start \n'.format(console), 'green')
+                            color('{}set target http://www.example.com'.format(console), 'green')
+                            color('{}crawler start \n'.format(console), 'green')
                             continue
                         elif self.input_list[1] == 'start': # 开始爬取网站url
                             try:
@@ -177,10 +177,10 @@ class ProcessConsole(object):
                                 color('\n[Help] Redis and MySQL remote command execution.', 'green')
                                 color('[Required] Target host, port and command.', 'green')
                                 color('For example:', 'green')
-                                color('{} set domain example.com'.format(console), 'green')
-                                color('{} set port 6379'.format(console), 'green')
-                                color('{} exploit redis "INFO"'.format(console), 'green')
-                                color('{} exploit mysql "root" "password" "SELECT VERSION();"\n'.format(console), 'green')
+                                color('{}set domain example.com'.format(console), 'green')
+                                color('{}set port 6379'.format(console), 'green')
+                                color('{}exploit redis "INFO"'.format(console), 'green')
+                                color('{}exploit mysql "root" "password" "SELECT VERSION();"\n'.format(console), 'green')
                                 continue
                             elif len(self.input_list) >= 3:
                                 if not self.domain:
@@ -222,8 +222,8 @@ class ProcessConsole(object):
                                 color('\n[Help] Scan ports on target host.', 'green')
                                 color('[Required] Domain or IP address as target.', 'green')
                                 color('For example:', 'green')
-                                color('{} set domain example.com'.format(console), 'green')
-                                color('{} scan start\n'.format(console), 'green')
+                                color('{}set domain example.com'.format(console), 'green')
+                                color('{}scan start\n'.format(console), 'green')
                                 continue
                             elif self.input_list[1] == 'start':
                                 if not self.domain:
@@ -251,8 +251,8 @@ class ProcessConsole(object):
                                 color('  - encode: base64, url, html, md5, sha1, sha256, sha512', 'green')
                                 color('  - decode: base64, url, html', 'green')
                                 color('For example:', 'green')
-                                color('{} encoder encode base64 "Hello World"'.format(console), 'green')
-                                color('{} encoder decode base64 "SGVsbG8gV29ybGQ="\n'.format(console), 'green')
+                                color('{}encoder encode base64 "Hello World"'.format(console), 'green')
+                                color('{}encoder decode base64 "SGVsbG8gV29ybGQ="\n'.format(console), 'green')
                                 continue
                             elif len(self.input_list) >= 4 and self.input_list[1] in ['encode', 'decode']:
                                 operation = self.input_list[1]
@@ -285,10 +285,10 @@ class ProcessConsole(object):
                                 color('\n[Help] Database and SSH brute force attack.', 'green')
                                 color('[Required] Target host, port and wordlist file.', 'green')
                                 color('For example:', 'green')
-                                color('{} set domain example.com'.format(console), 'green')
-                                color('{} set port 3306'.format(console), 'green')
-                                color('{} burp db start /path/to/wordlist'.format(console), 'green')
-                                color('{} burp ssh start /path/to/wordlist'.format(console), 'green')
+                                color('{}set domain example.com'.format(console), 'green')
+                                color('{}set port 3306'.format(console), 'green')
+                                color('{}burp db start /path/to/wordlist'.format(console), 'green')
+                                color('{}burp ssh start /path/to/wordlist'.format(console), 'green')
                                 continue
                             elif len(self.input_list) >= 4 and self.input_list[1] in ['db', 'ssh'] and self.input_list[2] == 'start':
                                 if not self.domain:
@@ -314,8 +314,8 @@ class ProcessConsole(object):
                                 color('\n[Help] Network traffic sniffer.', 'green')
                                 color('[Required] Network interface to sniff on.', 'green')
                                 color('For example:', 'green')
-                                color('{} set interface eth0'.format(console), 'green')
-                                color('{} sniffer start'.format(console), 'green')
+                                color('{}set interface eth0'.format(console), 'green')
+                                color('{}sniffer start'.format(console), 'green')
                                 continue
                             elif self.input_list[1] == 'start':
                                 if not self.interface:
@@ -335,10 +335,10 @@ class ProcessConsole(object):
                                 color('\n[Help] WiFi network scanning and cracking.', 'green')
                                 color('[Required] Network interface and wordlist file for cracking.', 'green')
                                 color('For example:', 'green')
-                                color('{} set interface en0'.format(console), 'green')
-                                color('{} wifi scan'.format(console), 'green')
-                                color('{} wifi crack <ssid> /path/to/wordlist'.format(console), 'green')
-                                color('{} wifi disconnect\n'.format(console), 'green')
+                                color('{}set interface en0'.format(console), 'green')
+                                color('{}wifi scan'.format(console), 'green')
+                                color('{}wifi crack <ssid> /path/to/wordlist'.format(console), 'green')
+                                color('{}wifi disconnect\n'.format(console), 'green')
                                 continue
                             elif self.input_list[1] == 'scan':
                                 if not self.interface:

@@ -18,7 +18,7 @@ def print_usage() -> None:
     color('  show domain       显示当前域名', 'white')
     color('  show port         显示当前端口', 'white')
     color('\n功能模块：', 'green')
-    color('  crawler           网站爬虫模块', 'white')
+    color('  crawler          网站爬虫模块', 'white')
     color('  scan             端口扫描模块', 'white')
     color('  burp             暴力破解模块', 'white')
     color('  sniffer          网络嗅探模块', 'white')
